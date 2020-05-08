@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+    <script src="./js/carousel.js"></script>
+    <style>
+        /* reset */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        
+        .clearfix {
+            zoom: 1;
+        }
+        
+        .slider {
+            position: relative;
+            height: 450px;
+            width: 750px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        
+        .pics {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 750px;
+        }
+        
+        .box {
+            float: left;
+            height: 450px;
+            width: 750px;
+        }
+        
+        .box img {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .btn-left {
+            display: none;
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: solid 30px transparent;
+            border-bottom: solid 30px transparent;
+            border-right: solid 30px rgba(200, 200, 200, 0.4);
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        .btn-right {
+            display: none;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: solid 30px transparent;
+            border-bottom: solid 30px transparent;
+            border-left: solid 30px rgba(200, 200, 200, 0.4);
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        .pic-nav {
+            position: absolute;
+            padding: 0;
+            top: 400px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+        
+        .point {
+            float: left;
+            height: 20px;
+            width: 20px;
+            border-radius: 10px;
+            margin: 0 5px;
+            background-color: rgba(200, 200, 200, 0.4);
+        }
+        
+        .current {
+            background-color: rgba(200, 200, 200, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="btn-left"></div>
+        <div class="btn-right"></div>
+        <div class="pics clearfix">
+            <div class="box"><img src="./images/carousel1.jpg" alt=""></div>
+            <div class="box"><img src="./images/carousel2.jpg" alt=""></div>
+            <div class="box"><img src="./images/carousel3.jpg" alt=""></div>
+            <div class="box"><img src="./images/carousel4.jpg" alt=""></div>
+            <div class="box"><img src="./images/carousel5.jpg" alt=""></div>
+        </div>
+        <ul class="pic-nav clearfix">
+        </ul>
+    </div>
+
+</body>
+
+</html>
