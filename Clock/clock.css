@@ -1,0 +1,179 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html,
+    body {
+        height: 100%;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #5ca8af;
+    }
+    
+    .clock {
+        width: 500px;
+        height: 500px;
+        border-radius: 250px;
+        border: solid 20px #fff;
+    }
+    
+    .plate {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 460px;
+        border-radius: 230px;
+        background-color: #fff;
+        box-shadow: 0 0 10px 2px #cccccc inset;
+    }
+    
+    .num {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+    }
+    /* 数字位置变换 */
+    
+    .num:nth-child(1) {
+        transform: rotateZ(180deg) translateY(200px);
+    }
+    
+    .num:nth-child(2) {
+        transform: rotateZ(210deg) translateY(200px);
+    }
+    
+    .num:nth-child(3) {
+        transform: rotateZ(240deg) translateY(200px);
+    }
+    
+    .num:nth-child(4) {
+        transform: rotateZ(270deg) translateY(200px);
+    }
+    
+    .num:nth-child(5) {
+        transform: rotateZ(300deg) translateY(200px);
+    }
+    
+    .num:nth-child(6) {
+        transform: rotateZ(330deg) translateY(200px);
+    }
+    
+    .num:nth-child(7) {
+        transform: rotateZ(360deg) translateY(200px);
+    }
+    
+    .num:nth-child(8) {
+        transform: rotateZ(390deg) translateY(200px);
+    }
+    
+    .num:nth-child(9) {
+        transform: rotateZ(420deg) translateY(200px);
+    }
+    
+    .num:nth-child(10) {
+        transform: rotateZ(450deg) translateY(200px);
+    }
+    
+    .num:nth-child(11) {
+        transform: rotateZ(480deg) translateY(200px);
+    }
+    
+    .num:nth-child(12) {
+        transform: rotateZ(510deg) translateY(200px);
+    }
+    /* 数字方向变换 */
+    
+    .num span {
+        position: absolute;
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        line-height: 22px;
+    }
+    
+    .num:nth-child(1) span {
+        transform: rotate(180deg);
+    }
+    
+    .num:nth-child(2) span {
+        transform: rotate(150deg);
+    }
+    
+    .num:nth-child(3) span {
+        transform: rotate(120deg);
+    }
+    
+    .num:nth-child(4) span {
+        transform: rotate(90deg);
+    }
+    
+    .num:nth-child(5) span {
+        transform: rotate(60deg);
+    }
+    
+    .num:nth-child(6) span {
+        transform: rotate(30deg);
+    }
+    
+    .num:nth-child(8) span {
+        transform: rotate(-30deg);
+    }
+    
+    .num:nth-child(9) span {
+        transform: rotate(-60deg);
+    }
+    
+    .num:nth-child(10) span {
+        transform: rotate(-90deg);
+    }
+    
+    .num:nth-child(11) span {
+        transform: rotate(-120deg);
+    }
+    
+    .num:nth-child(12) span {
+        transform: rotate(-150deg);
+    }
+    
+    .axis {
+        height: 15px;
+        width: 15px;
+        border-radius: 8px;
+        background-color: #000;
+    }
+    
+    .hand {
+        position: absolute;
+        background-color: #000;
+        border-radius: 5px;
+    }
+    
+    .hour {
+        height: 80px;
+        margin-top: -40px;
+        width: 8px;
+        transform-origin: center bottom;
+    }
+    
+    .minute {
+        height: 110px;
+        margin-top: -55px;
+        width: 4px;
+        transform-origin: center bottom;
+    }
+    
+    .second {
+        height: 140px;
+        margin-top: -70px;
+        width: 2px;
+        transform-origin: center bottom;
+    }
