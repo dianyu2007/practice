@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        ul {
+            text-decoration: none;
+        }
+        
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        
+        .clearfix {
+            zoom: 1;
+        }
+        
+        body {
+            background-color: #ccc;
+        }
+        
+        .header {
+            height: 50px;
+            background-color: #000;
+        }
+        
+        .midbox {
+            width: 50vw;
+            margin: 0 auto;
+        }
+        
+        .title {
+            color: #ffff;
+            font-size: 30px;
+            float: left;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        
+        .write {
+            float: right;
+            line-height: 50px;
+        }
+        
+        .field {
+            width: 20vw;
+            font-size: 16px;
+            border-radius: 5px;
+            outline: none;
+            padding: 5px 10px;
+        }
+        
+        .foot {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .clear {
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .tdltitle,
+        .dltitle {
+            float: left;
+            font-size: 30px;
+            color: #000;
+            font-weight: 700;
+            padding: 10px 0;
+        }
+        
+        .tdlist,
+        .dllist {
+            position: relative;
+            height: 32px;
+            margin-top: 10px;
+            padding: 0 15px 0 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        
+        .btncheck {
+            float: left;
+            height: 24px;
+            width: 24px;
+            transform: translateY(4px);
+            cursor: pointer;
+        }
+        
+        .tdtext {
+            float: left;
+            font-size: 18px;
+            line-height: 32px;
+            padding-left: 10px;
+        }
+        
+        .delete {
+            width: 30px;
+            float: right;
+            font-size: 20px;
+            line-height: 32px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .dllist {
+            opacity: .8;
+        }
+        
+        .tdnum,
+        .dlnum {
+            float: right;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            font-size: 15px;
+            line-height: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="midbox clearfix">
+                <div class="title">ToDoList</div>
+                <div class="write" @keyup.enter='write'><input class="field" type="text" value="" placeholder="添加ToDo" v-model='writetxt'></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="midbox">
+                <div class="todolists">
+                    <div class="clearfix">
+                        <div class="tdltitle">正在进行</div>
+                        <div class="tdnum">{{tdnum=dolist.length}}</div>
+                    </div>
+                    <div class="tdlist" v-for='item,index in dolist' :key='index'>
+                        <input type="checkbox" class="btncheck" @click.prevent='checkevent(item.id)' check='false'>
+                        <p class="tdtext">{{item.content}}</p>
+                        <div class="delete" @click='delevent(item.id)'>X</div>
+                    </div>
+
+                </div>
+                <div class="dolists">
+                    <div class="clearfix">
+                        <div class="dltitle">已经完成</div>
+                        <div class="dlnum">{{dlnum=donelist.length}}</div>
+                    </div>
+                    <div class="dllist" v-for='item,index in donelist' :key='index'>
+                        <input type="checkbox" class="btncheck" @click.prevent='checkevent(item.id)' checked='true'>
+                        <p class="tdtext">{{item.content}}</p>
+                        <div class="delete" @click='delevent(item.id)'>X</div>
+                    </div>
+                </div>
+                <div class="foot">Copyright &copy 2014 todolist.cn <span class="clear" @click='clearevent'>clear</span></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var dolist = new Vue({
+            el: '#app',
+            data: {
+                todolist: [],
+                writetxt: '',
+                tdnum: 0,
+                dlnum: 0,
+            },
+            computed: {
+                dolist: function() {
+                    let arr = this.todolist.filter(function(x) {
+                        return !x.isDone
+                    });
+                    return arr;
+                },
+                donelist: function() {
+                    let arr = this.todolist.filter(function(x) {
+                        return x.isDone
+                    });
+                    return arr;
+                }
+            },
+            methods: {
+                write: function() {
+                    if (this.writetxt == '') return;
+                    this.todolist.unshift({
+                        content: this.writetxt,
+                        isDone: false,
+                    });
+                    this.sortlist();
+                    this.writetxt = '';
+                },
+                checkevent: function(id) {
+                    this.todolist[id].isDone = !this.todolist[id].isDone
+                },
+                delevent: function(id) {
+                    this.todolist.splice(id, 1);
+                    this.sortlist();
+                },
+                sortlist: function() {
+                    this.todolist.forEach(function(item, index) {
+                        item.id = index
+                    });
+                },
+                clearevent: function() {
+                    this.todolist = []
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
