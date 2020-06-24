@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-API</title>
+    <link rel="stylesheet" href="./css/api.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+</head>
+
+<body>
+    <div class="header clearfix">
+        <div class="navbar">
+            <a href="api.html" class="nav-title">Data-API</a>
+            <a href="#" class="nav-com ">系统概述</a>
+            <a href="#" class="nav-com current">API表管理</a>
+            <a href="#" class="nav-com">API配置</a>
+            <a href="#" class="nav-com">API数据查询</a>
+        </div>
+        <div class="login clearfix">
+            <div class="iconfont icon-arrow-down navigation"></div>
+            <div class="user">
+                <div class="iconfont icon-account usericon"></div>
+                <span class="username">司杭</span>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="handle clearfix">
+            <div class="inquire">
+                <form action="">
+                    <input type="" class="item-type" list="item-type" placeholder="表类型">
+                    <datalist id="item-type">
+                        <option value="es">es</option>
+                    </datalist>
+                    <input type="" class="item-list" list="item-list" placeholder="项目列表">
+                    <datalist id="item-list">
+                        <option value="数据中心"></option>
+                    </datalist>
+                    <input type="text" class="search-bar" placeholder="表名/表别名/描述">
+                    <button type="button" class="btn-search">搜索</button>
+                </form>
+            </div>
+            <div class="create">
+                <button type="button" class="btn-create"><span class="iconfont icon-add-select btn-icon"></span>新建表</button>
+            </div>
+        </div>
+        <div class="tablation">
+            <table class="table-data">
+                <colgroup>
+                    <col span="2" class="one">
+                    <col span="2" class="two">
+                    <col class="one">
+                    <col span="2" class="three">
+                </colgroup>
+                <thead>
+                    <tr class="data-head">
+                        <th>表类型</th>
+                        <th>项目名称</th>
+                        <th>表名</th>
+                        <th>表别名</th>
+                        <th>表主键(key)</th>
+                        <th>描述</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr class="data-list">
+                        <td>es</td>
+                        <td>数据中心</td>
+                        <td>user_account_platform</td>
+                        <td>user_account</td>
+                        <td>account</td>
+                        <td>平台用户表</td>
+                        <td>
+                            <span class="data-change">修改</span>
+                            <span class="data-delete">删除</span>
+                        </td>
+                    </tr>
+                    <tr class="data-list">
+                        <td>es</td>
+                        <td>数据中心</td>
+                        <td>user_account_platform</td>
+                        <td>user_account</td>
+                        <td>account</td>
+                        <td>平台用户表</td>
+                        <td>
+                            <span class="data-change">修改</span>
+                            <span class="data-delete">删除</span>
+                        </td>
+                    </tr>
+                    <tr class="data-list">
+                        <td>es</td>
+                        <td>数据中心</td>
+                        <td>user_account_platform</td>
+                        <td>user_account</td>
+                        <td>account</td>
+                        <td>平台用户表</td>
+                        <td>
+                            <span class="data-change">修改</span>
+                            <span class="data-delete">删除</span>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <div class="list-page">
+            </div>
+        </div>
+
+    </div>
+    <div class="cover">
+        <div class="editpage">
+            <div class="title">
+                <span>编辑ES表</span>
+                <span class="off-icon">X</span>
+            </div>
+            <form action="" class="edit-form">
+                <table class="api-config">
+                    <tr class="form-row">
+                        <td class="form-tn">表名</td>
+                        <td><input type="text" class="form-tc" placeholder="请输入表名，ES类型唯一性校验"></td>
+                        <td class="form-tn">项目名称</td>
+                        <td><input type="text" class="form-tc" placeholder="请选择所属项目"></td>
+                    </tr>
+                    <tr>
+                        <td class="form-tn">表别名</td>
+                        <td><input type="text" class="form-tc" placeholder="请输入表别名"></td>
+                        <td class="form-tn">数据周期</td>
+                        <td><input type="text" class="form-tc" placeholder="请选择数据周期"></td>
+                    </tr>
+                    <tr>
+                        <td class="form-tn">分片数</td>
+                        <td class="from-par-btn">
+                            <div class="form-btn" id="api-fraglless">-</div>
+                            <input type="text" class="form-num" id="frag-num">
+                            <div class="form-btn" id="api-fragadd">+</div>
+                        </td>
+                        <td class="form-tn">副本数</td>
+                        <td class="from-par-btn">
+                            <div class="form-btn" id="api-dupless">-</div>
+                            <input type="text" class="form-num" id="dup-num">
+                            <div class="form-btn" id="api-dupadd">+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-tn">主键组成</td>
+                        <td><input type="text" class="form-tc" placeholder="请输入key字段组成"></td>
+                        <td class="form-tn">描述</td>
+                        <td><input type="text" class="form-tc" placeholder="请输入表描述"></td>
+                    </tr>
+                    <tr>
+                        <td class="form-tn">其他配置</td>
+                        <td colspan="3"><input type="text" class="form-t3"></td>
+                    </tr>
+                </table>
+                <table id='api-data'>
+                    <thead>
+                        <tr>
+                            <th class="form-tl">字段名(必填)</th>
+                            <th class="form-tl">数据类型(必填)</th>
+                            <th class="form-tl">字段顺序</th>
+                            <th class="form-tl">是否索引</th>
+                            <th class="form-tl">是否key</th>
+                            <th class="form-tl es-gray">是否精准查询</th>
+                            <th class="form-tl es-gray">是否聚合查询</th>
+                            <th class="form-tl es-gray">日期格式</th>
+                            <th class="form-tl">描述(必填)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="es-form">
+                            <td>
+                                <input type="text" placeholder="请输入字段名" class="es-one" name="form-name">
+                            </td>
+                            <td>
+                                <input type="text" placeholder="请选择" class="es-one" name="form-type">
+                            </td>
+                            <td><input type="text" class="es-two" name="form-turn"></td>
+                            <td class="es-ck"><input type="checkbox" name="form-index" class="es-three"></td>
+                            <td class="es-ck"><input type="checkbox" name="form-key" class="es-three"></td>
+                            <td class="es-ck"><input type="checkbox" name="form-psearch" class="es-three"></td>
+                            <td class="es-ck"><input type="checkbox" name="form-asearch" class="es-three"></td>
+                            <td><input type="text" class="es-four" name="form-timer"></td>
+                            <td><input type="text" placeholder="请输入字段描述" class="es-five" name="form-descrip"></td>
+                            <td class="es-six">X</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="es-add">+</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
+            <div class="es-btn">
+                <button class="btn-cancer">取消</button>
+                <button class="btn-submit">提交</button>
+            </div>
+        </div>
+        <div class="deletepage">
+            <p class="de-title">是否确认删除</p>
+            <button class="btn-cancer">取消</button>
+            <button class="btn-submit">确认</button>
+        </div>
+    </div>
+    <script src="./js/api.js"></script>
+</body>
+
+</html>

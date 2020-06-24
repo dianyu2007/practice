@@ -1,0 +1,37 @@
+{
+  "id": "1805439",
+  "name": "api",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12011574",
+      "name": "add-select",
+      "font_class": "add-select",
+      "unicode": "e7b0",
+      "unicode_decimal": 59312
+    },
+    {
+      "icon_id": "11487985",
+      "name": "atm",
+      "font_class": "atm",
+      "unicode": "e744",
+      "unicode_decimal": 59204
+    },
+    {
+      "icon_id": "12011691",
+      "name": "arrow-down",
+      "font_class": "arrow-down",
+      "unicode": "e7b2",
+      "unicode_decimal": 59314
+    },
+    {
+      "icon_id": "12011692",
+      "name": "account",
+      "font_class": "account",
+      "unicode": "e7b3",
+      "unicode_decimal": 59315
+    }
+  ]
+}
