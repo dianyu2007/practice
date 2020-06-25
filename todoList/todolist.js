@@ -7,6 +7,9 @@ var $tdnum = document.querySelector('.tdnum');
 var $dllist = document.querySelector('.dlbox');
 var $dlnum = document.querySelector('.dlnum');
 var $clear = document.querySelector('.clear');
+
+var $tdCount = $tdlist.getElementsByClassName('btncheck');
+var $dlCount = $dllist.getElementsByClassName('btncheck');
 var listData = [];
 
 //存储数据
@@ -81,17 +84,13 @@ function dataLoad() {
 }
 //统计数量
 function listCount() {
-    let $tdCount = $tdlist.getElementsByTagName('input');
-    let $dlCount = $dllist.getElementsByTagName('input');
     $tdnum.innerText = $tdCount.length;
     $dlnum.innerText = $dlCount.length;
 }
-
 //清空数据
 $clear.addEventListener('click', () => {
     listData = [];
     saveData();
     dataLoad();
 })
-
 dataLoad();
