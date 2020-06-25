@@ -1,6 +1,5 @@
 var $field = document.querySelector('.field');
 
-
 var $tdlist = document.querySelector('.todobox');
 var $tdnum = document.querySelector('.tdnum');
 
